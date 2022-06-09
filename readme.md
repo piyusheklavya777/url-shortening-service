@@ -6,7 +6,7 @@ It is a back end service written in go, which let's users shorten a long url lin
 - input traffic for redirection is 20,000 per second.
 
 # Deductions from the design requirements
-- It is a read heavy service. R:W::100:1.
+- It is a read heavy service. R:W :: 100:1.
 - Assuming the input and output is both limited to 500 bytes.
 - Capacity estimations :
     - 200 new url signups per second translate to 31536000000 urls stored at saturation (5 years) assuming max retention period for each.
@@ -16,3 +16,10 @@ It is a back end service written in go, which let's users shorten a long url lin
 
 # Service Architecture
 - Refer docs/service-architecture.io
+
+# Project set up:
+- This project code has been bootstrapped with serverless stack. (refer https://www.serverless.com/framework/docs/providers/aws/examples/hello-world/go)
+- Create a project folder (url-shortening service) and git init it.
+- At this level lives the overall readme.md, the docs folder, the folder where the code lives (created by the next step)
+- Run the following command at top level 
+    sls create --template aws-go --path url-shortening-service-serverless
